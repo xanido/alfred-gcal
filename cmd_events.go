@@ -143,7 +143,16 @@ func doEvents() error {
 			Valid(true).
 			Var("action", "open")
 
-		if e.Location != "" {
+		if e.HangoutLink != "" {
+
+			icon := ColouredIcon(iconMap, e.Colour)
+			it.NewModifier("cmd").
+				Subtitle("Open meet").
+				Arg(e.HangoutLink).
+				Valid(true).
+				Icon(icon).
+				Var("CALENDAR_APP", "") // Don't open Maps URLs in CALENDAR_APP
+		} else if e.Location != "" {
 			app := "Google Maps"
 			if opts.UseAppleMaps {
 				app = "Apple Maps"

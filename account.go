@@ -246,6 +246,7 @@ func (a *Account) FetchEvents(cal *Calendar, start time.Time) ([]*Event, error) 
 			Description:   e.Description,
 			URL:           e.HtmlLink,
 			Location:      e.Location,
+			HangoutLink:   e.HangoutLink,
 			Start:         start,
 			End:           end,
 			Colour:        cal.Colour,

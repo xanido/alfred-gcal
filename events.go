@@ -45,6 +45,7 @@ type Event struct {
 	URL           string    // Event URL
 	MapURL        string    // Google Maps URL
 	Location      string    // Where the event takes place
+	HangoutLink   string    // The hangout link
 	Start         time.Time // Time event started
 	End           time.Time // Time event finished
 	Colour        string    // CSS hex colour of event
@@ -57,7 +58,7 @@ func (e *Event) Duration() time.Duration { return e.End.Sub(e.Start) }
 
 func (e *Event) String() string {
 	date := e.Start.Format("2/1 at 15:04")
-	return fmt.Sprintf("\"%s\" on %s for %0.0fm", e.Title, date, e.Duration().Minutes())
+	return fmt.Sprintf("\"%s\" on %s for %0.0fm %s", e.Title, date, e.Duration().Minutes(), e.HangoutLink)
 }
 
 // EventsByStart sorts a slice of Events by start time.

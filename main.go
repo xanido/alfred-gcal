@@ -140,7 +140,7 @@ func (opts *options) MaxAgeEvents() time.Duration {
 }
 
 func (opts *options) ScheduleDuration() time.Duration {
-	return time.Duration(opts.ScheduleDays) * time.Hour * 24
+	return time.Duration(1) * time.Hour * 24
 }
 
 func init() {
